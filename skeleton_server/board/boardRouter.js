@@ -7,10 +7,9 @@ const boardDAO = require('./boardDAO');
 // http://localhost:8000/boards/boardList
 router.get('/boardList', function(req, res, next) {
     console.log('board router, borad list....')
-    // res.send('sss')
-    const data = req.body
-    // console.log('s')
-    boardDAO.boardList(data, (resp)=>{
+    // const data = req.body
+    
+    boardDAO.boardList((resp)=>{
         res.json(resp)
     })
     

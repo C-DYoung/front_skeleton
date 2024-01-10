@@ -7,7 +7,7 @@ const sql = {
 
 const boardDAO = {
     // 게시물 조회요청이 들어왔을 때 router에 의해 실행 .. dbms
-    boardList: async (item, callback) => {
+    boardList: async (callback) => {
         // const {name, title, content} = item
         let conn = null
         try{
@@ -17,7 +17,7 @@ const boardDAO = {
 
             const [resp] = await conn.query(sql.boardList)
             callback({status: 200, message: 'ok', data: resp})
-            console.log('22', resp)
+            console.log('22')
 
         }catch(error){
             return {status: 500, message: '게시물 조회 실패', error: error}
