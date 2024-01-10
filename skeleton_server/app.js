@@ -11,6 +11,8 @@ require('dotenv').config()
 const homeRouter = require('./home/homeRouter')
 // const exp = require('constants')
 const userRouter = require('./user/userRouter')
+// router 사용을 위해 등록해야함 .. ^^!***
+const boardRouter = require('./board/boardRouter')
 
 const app = express()
 
@@ -32,6 +34,7 @@ app.use(express.urlencoded({extended: true}))
 // http://localhost:8000
 app.use('/', homeRouter)
 app.use('/users', userRouter)
+app.use('/boards', boardRouter)
 
 // 404
 app.use((req, res, next) => {

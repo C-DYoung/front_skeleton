@@ -12,13 +12,13 @@ const Header = () => {
                         <span></span>
                         <span></span>
                     </button>
-                    <Link className="navbar-brand text-brand" href="index.html">Estate<span className="color-b">Agency</span></Link>
+                    <Link className="navbar-brand text-brand" to="/" href="index.html">Estate<span className="color-b">Agency</span></Link>
 
                     <div className="navbar-collapse collapse justify-content-center" id="navbarDefault">
                         <ul className="navbar-nav">
 
                             <li className="nav-item">
-                                <Link className="nav-link active" href="index.html">Home</Link>
+                                <Link className="nav-link active" to="/" href="index.html">Home</Link>
                             </li>
 
                             <li className="nav-item">
@@ -26,11 +26,11 @@ const Header = () => {
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link " href="property-grid.html">Property</Link>
+                                <Link className="nav-link " to="/user/signin">Login</Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link " href="blog-grid.html">Blog</Link>
+                                <Link className="nav-link " to="/board/list">Board</Link>
                             </li>
 
                             <li className="nav-item dropdown">

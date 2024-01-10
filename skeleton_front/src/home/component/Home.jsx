@@ -17,7 +17,11 @@ const Home = () => {
             <div className="intro intro-carousel swiper position-relative">
 
                 <div className="swiper-wrapper">
-
+                    {/* Home.jsx 컴포넌트가 라우팅 되는 조건이 
+                        http://localhost:5173/
+                        아래의 이미지에 의해 
+                        http://lo
+                    */}
                     <div className="swiper-slide carousel-item-a intro-item bg-image" style={{backgroundImage: "url(images/slide-1.jpg)"}}>
                         <div className="overlay overlay-a"></div>
                         <div className="intro-content display-table">
