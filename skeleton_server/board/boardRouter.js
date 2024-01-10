@@ -11,7 +11,6 @@ router.get('/boardList', function(req, res, next) {
     const data = req.body
     // console.log('s')
     boardDAO.boardList(data, (resp)=>{
-        // console.log('ss')
         res.json(resp)
     })
     

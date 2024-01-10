@@ -20,6 +20,7 @@ const BoardList = () => {
     //     // else navigate('/')
     // }, [data, navigate])
 
+    
     const [boardList, setBoardList] = useState({
         status: "", message: "", data: []
     })
@@ -27,11 +28,11 @@ const BoardList = () => {
     const getBoardList = useCallback(async () => {
         const resp = await axios.get('http://localhost:8000/boards/boardList')
         setBoardList(resp.data)
-    })
+    },[])
 
     useEffect(() => {
         //서버에서 최초에 한번만 데이터를 받아오면 되지 않을까 싶어서..
-        setBoardList()
+        getBoardList()
     }, [getBoardList])
 
 
