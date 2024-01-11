@@ -35,6 +35,11 @@ const BoardList = () => {
         getBoardList()
     }, [getBoardList])
 
+    // ADD 버튼 클릭 이벤트 
+    const add = useCallback(async (e) => {
+        e.preventDefault()
+        navigate('/board/insert')
+    }, [navigate])
 
 
     return (
@@ -94,7 +99,7 @@ const BoardList = () => {
                                 <tfoot>
                                     <tr>
                                         <td colSpan={5} className="text-end">
-
+                                            <button className="btn btn-primary btn-sm" onClick={add}>ADD</button>
                                         </td>
                                     </tr>
                                 </tfoot>

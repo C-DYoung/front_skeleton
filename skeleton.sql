@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS user (
     PRIMARY KEY (id)
 );
 
-select * from user;
 
 CREATE TABLE IF NOT EXISTS board(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -19,10 +18,7 @@ CREATE TABLE IF NOT EXISTS board(
     PRIMARY KEY (id)
 );
 
-DROP TABLE board;
 
 INSERT INTO board (name, title, content) VALUES ('홍길동', '첫번째 게시물', '첫번째 내용입니다...');
 INSERT INTO board (name, title, content) VALUES ('김길동', '두번째 게시물', '두번째 내용입니다...');
 INSERT INTO board (name, title, content) VALUES ('박길동', '세번째 게시물', '세번째 내용입니다...');
-
-select * from board;
