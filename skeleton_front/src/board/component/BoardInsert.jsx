@@ -16,7 +16,8 @@ const BoardInsert = () => {
     const insert = useCallback(async (e) => {
         console.log('00')
         e.preventDefault()
-        const resp = await axios.post('http://localhost:8000/board/insert')
+        // post 방식은 url 요청 후 data를 전송해야한다. ***ㄴ
+        const resp = await axios.post('http://localhost:8000/boards/insert', data)
         console.log('33')
         if (resp.data.status === 500) window.alert(resp.data.message)
         else {

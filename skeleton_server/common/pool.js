@@ -19,7 +19,7 @@ module.exports = function getPool(){
     // 초기 pool구성 즉, 초기 connection 을 언하는 갯수만큼 만들어서 유지
     const config = {
         host: process.env.DB_URL,
-        prot: process.env.DB_PORT,
+        port: process.env.DB_PORT,
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,

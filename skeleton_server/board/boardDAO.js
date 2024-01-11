@@ -31,16 +31,20 @@ const boardDAO = {
     insert: async (item, callback) => {
         // item - inset시킬 데이터 받기
         // callback - insert 성공 후 보낼 데이터? 
-        // const {name, title, content} = item
+        const {name, title, content} = item
         let conn=null
         try{
             console.log('00')
             conn = await getPool().getConnection()
-            console.log('11')
+            console.log('11', item)
+
             const [resp] = await conn.query(sql.insert, [item.name, item.title, item.content])
             callback({status: 200, message: 'ok', data: resp})
             console.log('22')
         }catch(error){
+
+            // error가 무엇이 뜨는지 확인하는 consloe .
+            console.log(error)
             return {status: 500, message: '게시물 등록 실패', error: error}
         }finally{
             if(conn !== null) conn.release()
