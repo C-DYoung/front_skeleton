@@ -3,6 +3,7 @@ const router = express.Router();
 const boardDAO = require('./boardDAO');
 
 
+
 // 유저 요청이들어오면 실행..
 // http://localhost:8000/boards/boardList
 router.get('/boardList', function(req, res, next) {
@@ -28,5 +29,47 @@ router.post('/insert', async (req, res, next) => {
     })
 
 })
+// :id => react의 router에서 찾아보기. 
+router.get('/board/:id', function (req, res, next) {
+    console.log('board router, borad....')
+    // // res.send('sss')
+    // const {id} = req.params
+    // boardDAO.board(id, (resp) => {
+    //     res.send(resp)
+    // })
+
+    const id = req.params.id
+    boardDAO.board(id, (resp) => {
+        res.json(resp)
+    })
+
+})
+
+router.post('/delete/:id', function(req, res, next) {
+    // const id = req.params.id
+    // boardDAO.delete(id, (resp) => {
+    //     res.json(resp)
+    // })
+    const id = req.params.id
+    boardDAO.delete(id, (resp) => {
+        res.json(resp)
+    })
+})
+
+router.post('/update', function(req, res, next) {
+    // console.log('update00')
+    // const data = req.body
+    // console.log('update11')
+    // boardDAO.update(data, (resp)=>{
+    //     res.json(resp)
+        
+    // })
+    const data = req.body
+    boardDAO.update(data, (resp)=>{
+        res.json(resp)
+        
+    })
+})
+
 
 module.exports = router
