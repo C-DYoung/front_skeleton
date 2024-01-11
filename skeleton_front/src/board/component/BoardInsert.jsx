@@ -9,20 +9,18 @@ const BoardInsert = () => {
     const [data, setData] = useState({ name: '', title: '', content: '' });
 
     const changeData = useCallback((e) => {
-        console.log('11')
         setData((data) => ({ ...data, [e.target.name]: e.target.value }))
-    }, [])
+    }, [data])
 
+    // 등록버튼 클릭시에. 
     const insert = useCallback(async (e) => {
-        console.log('00')
         e.preventDefault()
-        // post 방식은 url 요청 후 data를 전송해야한다. ***ㄴ
+        // post 방식은 url 요청 후 data를 전송해야한다. ***
         const resp = await axios.post('http://localhost:8000/boards/insert', data)
-        console.log('33')
         if (resp.data.status === 500) window.alert(resp.data.message)
         else {
-            console.log('22')
-            setData(resp.data)
+            // setData(resp.data)
+            // 화면 자동 목록으로 
             navigate('/board/list')
         }
     }, [data, navigate])
@@ -90,7 +88,8 @@ const BoardInsert = () => {
                                     </tr>
                                     <tr>
                                         <td colSpan="2" className="text-end">
-                                            <button type="button" className="btn btn-primary btn-sm" onClick={cancel}>취소</button>
+                                            {/* <button type="button" className="btn btn-primary btn-sm" onClick={cancel}>취소</button> */}
+                                            <button type="button" className="btn btn-primary btn-sm" onClick={()=>navigate('/board/list')}>취소</button>
                                             {/* 살짝 띄우기 위해서 아래 공백추가 */}
                                             {" "}
                                             <button type="button" className="btn btn-warning btn-sm" onClick={insert}>입력</button>

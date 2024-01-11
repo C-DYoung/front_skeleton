@@ -20,6 +20,7 @@ router.get('/boardList', function(req, res, next) {
 router.post('/insert', async (req, res, next) => {
     console.log('board router, board insert ... ')
     // res.send('sss')
+    // post방식은 request body를 통해서 데이터를 전달하는 방식
     const data = req.body
     boardDAO.insert(data, (resp)=>{
         res.json(resp)

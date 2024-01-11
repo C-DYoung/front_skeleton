@@ -31,14 +31,16 @@ const boardDAO = {
     insert: async (item, callback) => {
         // item - inset시킬 데이터 받기
         // callback - insert 성공 후 보낼 데이터? 
-        const {name, title, content} = item
+        // const {name, title, content} = item
         let conn=null
         try{
             console.log('00')
             conn = await getPool().getConnection()
             console.log('11', item)
 
+            // 데이터를 받아온 것을 가져오면 뒤에 작성.
             const [resp] = await conn.query(sql.insert, [item.name, item.title, item.content])
+            
             callback({status: 200, message: 'ok', data: resp})
             console.log('22')
         }catch(error){
